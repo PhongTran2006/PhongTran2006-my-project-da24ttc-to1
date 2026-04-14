@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div.container{
+    background-color: rgb(135, 255, 151);
+    margin: 5px;
+    padding: 5px;
+}
+form#frmLogin{
+    background-color: rgb(0, 255, 76);
+    padding: 20px;
+    border-radius: 5px;
+}
+h3.title{
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    font-size: larger;
+    margin: auto;
+
+}
+div.form-group{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+label{
+    color:rgb(38, 0, 255);
+    font-weight: bolder;
+}
+.form-control{
+    display: block;
+    width: 30%;
+    padding: 2px;
+}
+.but{
+    color:rgb(25, 0, 255);
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 2px;
+    margin-left: 20px;
+
+}
+
