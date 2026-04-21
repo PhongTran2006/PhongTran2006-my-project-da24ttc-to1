@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <body>
+        <table border="1">
+            <tr>
+                <td class="tt"></td>
+            </tr>
+            <tr>
+                <td>STT</td>
+                <td>TenSanPham</td>
+                <td class="sl">Soluong</td>
+                <td class="dg">Dongia</td>
+                <td class="tt">Thanhtien</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>A</td>
+                <td class="sl">3</td>
+                <td class="dg">1000</td>
+                <td class="tt"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>B</td>
+                <td class="sl">2</td>
+                <td class="dg">2000</td>
+                <td class="tt"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>C</td>
+                <td class="sl">4</td>
+                <td class="dg">3000</td>
+                <td class="tt"></td>
+            </tr>
+            <tr>
+                <td colspan="3">tổng thanh toán</td>
+                <td colspan="2" id="tongthanhtoan"></td>
+            </tr>
+        </table>
+        <script>
+            const Soluong = document.getElementsByClassName("sl");
+            const Dongia = document.getElementsByClassName("dg");
+            const Thanhtien = document.getElementsByClassName("tt");
+            let tongthanhtoan = 0;
+            for(let i = 0; i < Dongia.length; i++) {
+                Thanhtien[i].innerHTML=Dongia[i].innerHTML*Soluong[i].innerHTML;
+                tongthanhtoan += parseInt(Thanhtien[i].innerHTML)
+            }
+            document.getElemenById("tongthanhtoan").innerHTML = tongthanhtoan;
+        </script>
+    </body>
+</html>
