@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Thành Công</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style6.css">
+</head>
+<body>
+
+<script>
+    // tạo div chính
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "product-item");
+
+    // tạo ảnh
+    const newImage = document.createElement("img");
+    newImage.setAttribute("src", "../assets/meme.jpg");
+    newImage.setAttribute("alt", "meme");
+
+    // thêm ảnh vào div
+    newDiv.appendChild(newImage);
+
+    // tạo div info
+    const newInfo = document.createElement("div");
+    newInfo.setAttribute("class", "product-info");
+
+    // tạo tên sản phẩm
+    const productName = document.createElement("p");
+    productName.textContent = "Meme mèo";
+
+    // thêm tên vào info
+    newInfo.appendChild(productName);
+
+    // thêm info vào div chính
+    newDiv.appendChild(newInfo);
+
+    // thêm chữ "Thành Công"
+    const newText = document.createElement("p");
+    newText.textContent = "Thành Công";
+    newDiv.appendChild(newText);
+
+    // đưa ra body
+    document.body.appendChild(newDiv);
+</script>
+
+</body>
+</html>
