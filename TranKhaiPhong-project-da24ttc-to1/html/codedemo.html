@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List DOM Project</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group{
+            display: flex;
+            gap: 10px;
+        }
+
+        input{
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus{
+            border-color: #007bff;
+        }
+
+        button{
+            padding: 10px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background: #0056b3;
+        }
+
+        ul{
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li{
+            background: #f1f1f1;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            transition: 0.3s;
+        }
+
+        li:hover{
+            transform: scale(1.02);
+        }
+
+        .task-text{
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .completed{
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .delete-btn{
+            background: red;
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover{
+            background: darkred;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>To-Do List</h1>
+
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Enter your task">
+
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <script>
+
+        const addBtn = document.getElementById("addBtn");
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+
+        // hàm thêm task
+        function addTask(){
+
+            const taskValue = taskInput.value.trim();
+
+            // kiểm tra rỗng
+            if(taskValue === ""){
+                alert("Please enter a task!");
+                return;
+            }
+
+            // tạo li
+            const li = document.createElement("li");
+
+            // tạo span
+            const taskText = document.createElement("span");
+            taskText.textContent = taskValue;
+            taskText.classList.add("task-text");
+
+            // hoàn thành task
+            taskText.addEventListener("click", function(){
+                taskText.classList.toggle("completed");
+            });
+
+            // tạo nút delete
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("delete-btn");
+
+            // xóa task
+            deleteBtn.addEventListener("click", function(){
+                li.remove();
+            });
+
+            // thêm vào li
+            li.appendChild(taskText);
+            li.appendChild(deleteBtn);
+
+            // thêm vào ul
+            taskList.appendChild(li);
+
+            // reset input
+            taskInput.value = "";
+
+            // focus lại input
+            taskInput.focus();
+        }
+
+        // click button
+        addBtn.addEventListener("click", addTask);
+
+        // nhấn Enter
+        taskInput.addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                addTask();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
